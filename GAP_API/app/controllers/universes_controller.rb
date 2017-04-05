@@ -1,4 +1,6 @@
 class UniversesController < ApplicationController
+  #http_basic_authenticate_with name: "admin", password: "hunter2"
+  before_filter :authenticate
   before_action :set_universe, only: [:show, :update, :destroy]
 
   # GET /universes
@@ -48,4 +50,13 @@ class UniversesController < ApplicationController
     def universe_params
       params.require(:universe).permit(:id, :name)
     end
+
+    protected
+
+    def authenticate
+      authenticate_or_request_with_http_basic do |username, password|
+        username=="GAP_admin" && password == "GAP_letmein"
+      end
+    end
+
 end

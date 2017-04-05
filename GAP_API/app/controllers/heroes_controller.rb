@@ -1,4 +1,5 @@
 class HeroesController < ApplicationController
+  before_filter :authenticate
   before_action :set_hero, only: [:show, :update, :destroy]
 
   # GET /heroes
@@ -48,4 +49,13 @@ class HeroesController < ApplicationController
     def hero_params
       params.require(:hero).permit(:name, :real_name)
     end
+
+    protected
+
+    def authenticate
+      authenticate_or_request_with_http_basic do |username, password|
+        username=="GAP_admin" && password == "GAP_letmein"
+      end
+    end
+
 end
