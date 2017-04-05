@@ -3,5 +3,9 @@ Heroes and their respective universe API.
 This is a simple API that contains or manages a list of Heroes and their universes, 
 is made on Ruby on Rails platform and has a basic HTML authentication to login in order to see the specific info.
 
+This app is expected to be delivered at thursday, march 6, 2017
+
+INSTALLATION AND RUNNING
 Please get this repository and get into the folder locally, run the bundle install command and start the app with rails s command
 after that, go to the routes given at the requirements sheet.
+
